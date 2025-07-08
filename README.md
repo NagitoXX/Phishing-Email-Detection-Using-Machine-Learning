@@ -120,6 +120,14 @@ To test with your own email, modify the `email_text` variable in `predict.py`:
 email_text = "Your account has been compromised. Click here to reset your password."
 ```
 
+### **Web Application**
+You can also run a simple Flask web interface to test the model and view cybersecurity awareness slides:
+```bash
+python app.py
+```
+Open your browser at [http://localhost:5000](http://localhost:5000) to access the form for email analysis and navigate to `/slides` for the awareness slides.
+
+
 ---
 
 ## **How It Works**

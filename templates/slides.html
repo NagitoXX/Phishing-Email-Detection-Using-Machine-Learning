@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cybersecurity Awareness</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+    .slide { display: none; }
+    .active { display: block; }
+    </style>
+</head>
+<body>
+    <h1>Cybersecurity Awareness Slides</h1>
+    <div id="slides">
+        <div class="slide active">Beware of suspicious emails</div>
+        <div class="slide">Check the sender address carefully</div>
+        <div class="slide">Avoid clicking unknown links or attachments</div>
+        <div class="slide">Use multi-factor authentication whenever possible</div>
+    </div>
+    <button onclick="nextSlide()">Next</button>
+    <a href="/">Back</a>
+    <script>
+    let index = 0;
+    function nextSlide() {
+        const slides = document.querySelectorAll('.slide');
+        slides[index].classList.remove('active');
+        index = (index + 1) % slides.length;
+        slides[index].classList.add('active');
+    }
+    </script>
+</body>
+</html>
