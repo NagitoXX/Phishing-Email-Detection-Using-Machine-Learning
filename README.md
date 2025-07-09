@@ -76,17 +76,20 @@ Activate the virtual environment:
 ```bash
 pip install -r requirements.txt
 ```
+The requirements file includes `kagglehub[pandas-datasets]` to enable loading
+the Kaggle dataset directly into pandas.
 
 ---
 
 ## **Setup and Usage**
 
 ### **Step 0: Download Dataset**
-Use `kagglehub` to fetch the phishing email dataset:
+Use `kagglehub` to fetch the phishing email dataset and save it locally:
 ```bash
 python src/download_dataset.py
 ```
-The script prints the path where the dataset was saved.
+This loads the dataset directly into a pandas DataFrame and writes it to
+`data/phishing_emails.csv`.
 
 ### **Step 1: Install Dependencies**
 Make sure all required libraries are installed:
