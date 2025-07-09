@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cybersecurity Awareness</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='slides.js') }}" defer></script>
+</head>
+<body>
+    <h1>Cybersecurity Awareness</h1>
+    <div class="slides">
+        <div class="slide active">
+            <h2>What is Phishing?</h2>
+            <p>Phishing is a scam where attackers impersonate legitimate organizations via email.</p>
+        </div>
+        <div class="slide">
+            <h2>How to Spot Phishing Emails</h2>
+            <ul>
+                <li>Check the sender's address</li>
+                <li>Look for spelling mistakes</li>
+                <li>Hover over links before clicking</li>
+            </ul>
+        </div>
+        <div class="slide">
+            <h2>Protect Yourself</h2>
+            <ul>
+                <li>Use multi-factor authentication</li>
+                <li>Never share personal data via email</li>
+                <li>Report suspicious messages</li>
+            </ul>
+        </div>
+    </div>
+    <button id="prev">Previous</button>
+    <button id="next">Next</button>
+    <br>
+    <a href="{{ url_for('index') }}">Back to detector</a>
+</body>
+</html>

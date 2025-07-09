@@ -10,10 +10,13 @@ This project builds a phishing email detection system using machine learning tec
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Setup and Usage](#setup-and-usage)
+  - [Step 0: Download Dataset](#step-0-download-dataset)
   - [Step 1: Install Dependencies](#step-1-install-dependencies)
   - [Step 2: Preprocess Data](#step-2-preprocess-data)
   - [Step 3: Train the Model](#step-3-train-the-model)
-  - [Step 4: Make Predictions](#step-4-make-predictions)
+  - [Step 4: Launch the Web App](#step-4-launch-the-web-app)
+- **Prediction**: Predict whether a new email is phishing based on the trained model.
+- **Simple Web Interface**: Submit email text through a browser and view predictions.
 - [How It Works](#how-it-works)
 - [How to Contribute](#how-to-contribute)
 - [License](#license)
@@ -31,6 +34,7 @@ This project detects phishing emails using machine learning. It involves several
 - **Text Preprocessing**: The raw email text is converted into a feature vector using TF-IDF (Term Frequency - Inverse Document Frequency).
 - **Model Training**: Train a machine learning model using various algorithms such as Random Forest, Logistic Regression, etc.
 - **Prediction**: Predict whether a new email is phishing based on the trained model.
+- **Simple Web Interface**: Submit email text through a browser and view predictions.
 
 ---
 
@@ -72,10 +76,20 @@ Activate the virtual environment:
 ```bash
 pip install -r requirements.txt
 ```
+The requirements file includes `kagglehub[pandas-datasets]` to enable loading
+the Kaggle dataset directly into pandas.
 
 ---
 
 ## **Setup and Usage**
+
+### **Step 0: Download Dataset**
+Use `kagglehub` to fetch the phishing email dataset and save it locally:
+```bash
+python src/download_dataset.py
+```
+This loads the dataset directly into a pandas DataFrame and writes it to
+`data/phishing_emails.csv`.
 
 ### **Step 1: Install Dependencies**
 Make sure all required libraries are installed:
@@ -89,7 +103,7 @@ Run the `preprocess.py` script to preprocess the raw data and save it as a pickl
 python src/preprocess.py
 ```
 This script:
-- Loads the raw email dataset (`phishing_emails.csv`).
+- Loads the raw email dataset (e.g. `phishing_emails.csv`) downloaded from Kaggle.
 - Converts the email text into a numerical format using TF-IDF vectorization.
 - Saves the processed data to `preprocessed_data.pkl`.
 
@@ -106,7 +120,8 @@ This script:
 
 **Note**: To try a different model, replace the `RandomForestClassifier` in `train.py` with another algorithm, like `LogisticRegression`.
 
-### **Step 4: Make Predictions**
+- **Prediction**: Predict whether a new email is phishing based on the trained model.
+- **Simple Web Interface**: Submit email text through a browser and view predictions.
 Predict phishing emails using the `predict.py` script:
 ```bash
 python src/predict.py
@@ -114,6 +129,14 @@ python src/predict.py
 This script:
 - Loads the trained model (`phishing_detector.pkl`) and vectorizer.
 - Takes an input email and predicts whether it’s phishing or legitimate.
+### **Step 4: Launch the Web App**
+
+Run the Flask interface to test emails in your browser:
+```bash
+python app.py
+```
+Open http://localhost:5000 to access the detector and `/awareness` for security tips.
+
 
 To test with your own email, modify the `email_text` variable in `predict.py`:
 ```python
@@ -130,7 +153,8 @@ email_text = "Your account has been compromised. Click here to reset your passwo
 ### **2. Model Training**
 - Trains a Random Forest model to classify emails as phishing or not based on text patterns.
 
-### **3. Prediction**
+- **Prediction**: Predict whether a new email is phishing based on the trained model.
+- **Simple Web Interface**: Submit email text through a browser and view predictions.
 - For a new email, the model predicts whether it is phishing or legitimate using the patterns it learned during training.
 
 ---

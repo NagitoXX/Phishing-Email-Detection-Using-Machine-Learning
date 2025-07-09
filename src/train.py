@@ -27,4 +27,5 @@ def train_model(data_file, model_file):
     print(f"Model saved to {model_file}")
 
 if __name__ == "__main__":
+    # Run preprocess.py on the Kaggle dataset before training
     train_model("data/preprocessed_data.pkl", "models/phishing_detector.pkl")
