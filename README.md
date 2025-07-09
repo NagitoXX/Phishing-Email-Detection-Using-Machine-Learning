@@ -13,7 +13,8 @@ This project builds a phishing email detection system using machine learning tec
   - [Step 1: Install Dependencies](#step-1-install-dependencies)
   - [Step 2: Preprocess Data](#step-2-preprocess-data)
   - [Step 3: Train the Model](#step-3-train-the-model)
-  - [Step 4: Make Predictions](#step-4-make-predictions)
+- **Prediction**: Predict whether a new email is phishing based on the trained model.
+- **Simple Web Interface**: Submit email text through a browser and view predictions.
 - [How It Works](#how-it-works)
 - [How to Contribute](#how-to-contribute)
 - [License](#license)
@@ -31,6 +32,7 @@ This project detects phishing emails using machine learning. It involves several
 - **Text Preprocessing**: The raw email text is converted into a feature vector using TF-IDF (Term Frequency - Inverse Document Frequency).
 - **Model Training**: Train a machine learning model using various algorithms such as Random Forest, Logistic Regression, etc.
 - **Prediction**: Predict whether a new email is phishing based on the trained model.
+- **Simple Web Interface**: Submit email text through a browser and view predictions.
 
 ---
 
@@ -106,7 +108,8 @@ This script:
 
 **Note**: To try a different model, replace the `RandomForestClassifier` in `train.py` with another algorithm, like `LogisticRegression`.
 
-### **Step 4: Make Predictions**
+- **Prediction**: Predict whether a new email is phishing based on the trained model.
+- **Simple Web Interface**: Submit email text through a browser and view predictions.
 Predict phishing emails using the `predict.py` script:
 ```bash
 python src/predict.py
@@ -114,6 +117,14 @@ python src/predict.py
 This script:
 - Loads the trained model (`phishing_detector.pkl`) and vectorizer.
 - Takes an input email and predicts whether it’s phishing or legitimate.
+### **Step 4: Launch the Web App**
+
+Run the Flask interface to test emails in your browser:
+```bash
+python app.py
+```
+Open http://localhost:5000 to access the detector and `/awareness` for security tips.
+
 
 To test with your own email, modify the `email_text` variable in `predict.py`:
 ```python
@@ -130,7 +141,8 @@ email_text = "Your account has been compromised. Click here to reset your passwo
 ### **2. Model Training**
 - Trains a Random Forest model to classify emails as phishing or not based on text patterns.
 
-### **3. Prediction**
+- **Prediction**: Predict whether a new email is phishing based on the trained model.
+- **Simple Web Interface**: Submit email text through a browser and view predictions.
 - For a new email, the model predicts whether it is phishing or legitimate using the patterns it learned during training.
 
 ---

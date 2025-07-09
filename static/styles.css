@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+textarea {
+    width: 100%;
+}
+.slides {
+    position: relative;
+    max-width: 600px;
+    margin: 20px auto;
+}
+.slide {
+    display: none;
+}
+.slide.active {
+    display: block;
+}
