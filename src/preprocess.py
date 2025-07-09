@@ -24,4 +24,5 @@ def preprocess_data(input_file, output_file):
     print(f"Preprocessed data saved to {output_file}")
 
 if __name__ == "__main__":
+    # Replace the input file with the CSV downloaded using kagglehub if needed
     preprocess_data("data/phishing_emails.csv", "data/preprocessed_data.pkl")
